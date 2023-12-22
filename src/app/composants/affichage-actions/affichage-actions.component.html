@@ -1,0 +1,13 @@
+<body style="display: flex; flex-direction: row">
+
+  <div class="sidebar" >
+    <a routerLink="/affichageActions/actions"> Ajout Action</a>
+    <a routerLink="/affichageActions/liste"><i class="fa fa-fw fa-wrench"></i> Liste actions</a>
+    <a routerLink="/affichageActions/questionnaires"><i class="fa fa-fw fa-user"></i> Questionnaires</a>
+    <a href="#contact"><i class="fa fa-fw fa-envelope"></i> Contact</a>
+  </div>
+
+  <div style="width: 100%;" class="zoneAffichage" >
+    <router-outlet ></router-outlet>
+  </div>
+</body>

@@ -1,0 +1,31 @@
+[
+  {
+    "id":1,
+    "nom":"Apple",
+    "idSecteur":2,
+    "libelleSecteur":"Informatique / Télécoms",
+    "statut":1
+  },
+  {
+    "id":1,
+    "nom":"Tesla",
+    "idSecteur":4,
+    "libelleSecteur":"Machines et équipements / Automobile",
+    "statut":1
+  },
+  {
+    "id":1,
+    "nom":"BNP PariBas",
+    "idSecteur":7,
+    "libelleSecteur":"Banque / Assurance",
+    "statut":2
+  }
+  ,
+  {
+    "id":1,
+    "nom":"NOKIA",
+    "idSecteur":10,
+    "libelleSecteur":"Informatique / Télécoms",
+    "statut":3
+  }
+]

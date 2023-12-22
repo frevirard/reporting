@@ -1,0 +1,261 @@
+<!-- <button mat-raised-button (click)="isOptional = !isOptional">
+  {{!isOptional ? 'Enable optional steps' : 'Disable optional steps'}}
+</button> -->
+
+<mat-horizontal-stepper linear #stepper style="margin-top:10vh ;" class="zoneAffichage">
+  <mat-step [stepControl]="firstFormGroup">
+    <form [formGroup]="firstFormGroup"
+      style="display: flex; flex-direction:column; justify-content: center; align-items: center; min-height: 80%;">
+
+      <div>
+        <ng-template matStepLabel>Infos Entreprise</ng-template>
+
+        <mat-card
+          style="display: flex; flex-direction:column; justify-content: center; align-items: center; max-width: 600px;min-width: 600px;">
+          <mat-card-header>
+            <!-- fields -->
+          </mat-card-header>
+
+          <div style="display: flex ; flex-direction: column; justify-content: space-between;">
+
+            <mat-form-field appearance="outline" style="max-width: 400px; min-width: 400px;">
+              <mat-label>Nom</mat-label>
+              <input [(ngModel)]="this.action.nom" matInput placeholder="Nom" formControlName="firstCtrl" required>
+              <mat-hint>Renseignez le nom</mat-hint>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" style="max-width: 400px; min-width: 400px;">
+              <mat-label>Secteur d'activité</mat-label>
+              <mat-select formControlName="secondCtrl" required [(ngModel)]="this.action.idSecteur">
+                <div *ngFor="let secteur of this.secteurs">
+                  <mat-option value={{secteur.id}}>{{secteur.libelle}}</mat-option>
+                </div>
+              </mat-select>
+              <mat-hint>Renseignez le secteur d'activité</mat-hint>
+            </mat-form-field>
+
+          </div>
+
+        </mat-card>
+
+      </div>
+
+    </form>
+
+    <div style="display: flex; justify-content: space-around; margin-top: 10vh;">
+      <button (click)="test()" mat-button matStepperNext>Suivant</button>
+    </div>
+
+
+  </mat-step>
+  <mat-step [stepControl]="secondFormGroup" [optional]="isOptional">
+    <form [formGroup]="secondFormGroup"
+      style="display: flex; flex-direction:column; justify-content: center; align-items: center; min-height: 80%;">
+
+      <div>
+        <ng-template matStepLabel>Biodiversité</ng-template>
+
+        <mat-card
+          style="display: flex; flex-direction:column; justify-content: center; align-items: center; max-width: 700px;min-width: 700px;">
+          <mat-card-header>
+
+          </mat-card-header>
+
+          <div style="display: flex ; flex-direction: column; justify-content: space-between;">
+            <!-- fields 1 -2  -->
+            <div style="display: flex;flex-direction: row; justify-content: space-around;width: 700px;">
+              <mat-form-field appearance="outline" style="max-width: 300px; min-width: 300px;">
+                <mat-label>Année de référence</mat-label>
+                <input [(ngModel)]="this.questBiodiversite.anneeReference" matInput placeholder="Nom"
+                  formControlName="anneeReference" required type="number">
+                <mat-hint>Compris entre 2000-2024</mat-hint>
+              </mat-form-field>
+
+              <mat-form-field appearance="outline" style="max-width: 300px; min-width: 300px;">
+                <mat-label>Type de mesures</mat-label>
+                <mat-select formControlName="typeMesure" required [(ngModel)]="this.questBiodiversite.typeMesure">
+
+                  <mat-option value="Identification et préservation des zones sensibles">Identification et préservation
+                    des zones sensibles</mat-option>
+                  <mat-option value="Reforestation ou plantation d'arbres">Reforestation ou plantation
+                    d'arbres</mat-option>
+                  <mat-option value="Utilisation durable des ressources naturelles">Utilisation durable des ressources
+                    naturelles</mat-option>
+                  <mat-option value="Conservation des habitats naturels">Conservation des habitats naturels</mat-option>
+                  <mat-option value="Aucune mesure déclarée">Aucune mesure déclarée</mat-option>
+                </mat-select>
+                <mat-hint>Renseignez le secteur d'activité</mat-hint>
+              </mat-form-field>
+            </div>
+
+            <div style="display: flex;flex-direction: row; justify-content: space-around;width: 700px;">
+
+              <!-- fields 3 -4  -->
+              <mat-form-field appearance="outline" style="max-width: 300px; min-width: 300px;">
+                <mat-label>Intégration de la Biodiversité dans les Critères d'investissement</mat-label>
+                <mat-select formControlName="integBiodiversite" required [(ngModel)]="this.questBiodiversite.integBiodiversite">
+
+                  <mat-option value="Oui">Oui</mat-option>
+                  <mat-option value="Non">Non</mat-option>
+                  <mat-option value="En cours de mise en œuvre">En cours de mise en œuvre</mat-option>
+                  <mat-option value="Aucune information disponible">Aucune information disponible</mat-option>
+                </mat-select>
+                <mat-hint>Renseignez le secteur d'activité</mat-hint>
+              </mat-form-field>
+
+              <mat-form-field appearance="outline" style="max-width: 300px; min-width: 300px;">
+                <mat-label>Partenariats avec des Organisations de Conservation</mat-label>
+                <mat-select formControlName="integBiodiversite" required [(ngModel)]="this.questBiodiversite.integBiodiversite">
+
+                  <mat-option value="Oui">Oui</mat-option>
+                  <mat-option value="Non">Non</mat-option>
+                  <mat-option value="En cours de développement">En cours de développement</mat-option>
+                  <mat-option value="Aucune information disponible">Aucune information disponible</mat-option>
+                </mat-select>
+                <mat-hint>Renseignez le secteur d'activité</mat-hint>
+              </mat-form-field>
+
+
+            </div>
+
+
+
+
+            <div style="display: flex;flex-direction: row; justify-content: space-around;width: 700px;">
+                <!-- champs de saisie 5 -6 -->
+              <mat-form-field appearance="outline" style="max-width: 300px; min-width: 300px;">
+                <mat-label>Mise en Place de Corridors Écologiques</mat-label>
+                <mat-select formControlName="coridor" required [(ngModel)]="this.questBiodiversite.coridor">
+
+                  <mat-option value="Oui">Oui</mat-option>
+                  <mat-option value="Non">Non</mat-option>
+                  <mat-option value="En cours de planification">En cours de planification</mat-option>
+                  <mat-option value="Aucune information disponible">Aucune information disponible</mat-option>
+                </mat-select>
+                <mat-hint>Renseignez le secteur d'activité</mat-hint>
+              </mat-form-field>
+
+              <mat-form-field appearance="outline" style="max-width: 300px; min-width: 300px;">
+                <mat-label>Formation et Sensibilisation du Personnel</mat-label>
+                <mat-select formControlName="formation" required [(ngModel)]="this.questBiodiversite.formation">
+
+                  <mat-option value="Oui">Oui</mat-option>
+                  <mat-option value="Non">Non</mat-option>
+                  <mat-option value="En cours de mise en œuvre">En cours de mise en œuvre</mat-option>
+                  <mat-option value="Aucune information disponible">Aucune information disponible</mat-option>
+                </mat-select>
+                <mat-hint>Renseignez le secteur d'activité</mat-hint>
+              </mat-form-field>
+            </div>
+
+
+          <div style="display: flex;flex-direction: row; justify-content: space-around;width: 700px;">
+              <!-- champs de saisie 7- 8 -->
+            <mat-form-field appearance="outline" style="max-width: 300px; min-width: 300px;">
+              <mat-label>Évaluation de l'impact sur la Biodiversité</mat-label>
+              <mat-select formControlName="evalImpact" required [(ngModel)]="this.questBiodiversite.evalImpact">
+
+                <mat-option value="Réalisée régulièrement">Réalisée régulièrement</mat-option>
+                <mat-option value="Réalisée occasionnellement">Réalisée occasionnellement</mat-option>
+                <mat-option value="En cours de planification">En cours de planification</mat-option>
+                <mat-option value="Aucune évaluation effectuée">Aucune évaluation effectuée</mat-option>
+              </mat-select>
+              <mat-hint>Renseignez le secteur d'activité</mat-hint>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" style="max-width: 300px; min-width: 300px;">
+              <mat-label>Engagement envers des Standards Internationaux de Biodiversité</mat-label>
+              <mat-select formControlName="engagement" required [(ngModel)]="this.questBiodiversite.engagement">
+
+                <mat-option value="Respect des Principes de l'équateur">Respect des Principes de l'équateur</mat-option>
+                <mat-option value="Alignement sur les Standards de Performance de la Société financière
+                internationale (IFC)">Alignement sur les Standards de Performance de la Société financière
+                internationale (IFC)</mat-option>
+                <mat-option value="Aucun engagement déclaré">Aucun engagement déclaré</mat-option>
+              </mat-select>
+              <mat-hint>Renseignez le secteur d'activité</mat-hint>
+            </mat-form-field>
+          </div>
+
+
+          <div style="display: flex;flex-direction: row; justify-content: space-around;width: 700px;">
+            <!-- champs de saisie -->
+            <mat-form-field appearance="outline" style="max-width: 300px; min-width: 300px;">
+              <mat-label>Engagement envers des Standards Internationaux de Biodiversité</mat-label>
+              <mat-select formControlName="engagement" required [(ngModel)]="this.questBiodiversite.engagement">
+
+                <mat-option value="Faible">Faible</mat-option>
+                <mat-option value="Modéré">Modéré</mat-option>
+                <mat-option value="Élevé">Élevé</mat-option>
+                <mat-option value="Inconnu">Inconnu</mat-option>
+              </mat-select>
+              <mat-hint>Renseignez le secteur d'activité</mat-hint>
+            </mat-form-field>
+
+          <mat-form-field appearance="outline" style="max-width: 300px; min-width: 300px;">
+            <mat-label>Facteurs d'incertitude</mat-label>
+            <mat-select formControlName="evalImpact" required [(ngModel)]="this.questBiodiversite.evalImpact">
+
+              <mat-option value="Réalisée régulièrement">Réalisée régulièrement</mat-option>
+              <mat-option value="Réalisée occasionnellement">Réalisée occasionnellement</mat-option>
+              <mat-option value="En cours de planification">En cours de planification</mat-option>
+              <mat-option value="Aucune évaluation effectuée">Aucune évaluation effectuée</mat-option>
+            </mat-select>
+            <mat-hint>Renseignez le secteur d'activité</mat-hint>
+          </mat-form-field>
+
+
+        </div>
+
+
+          </div>
+
+
+
+        </mat-card>
+
+      </div>
+
+    </form>
+
+    <div style="display: flex; justify-content: space-around; margin-top: 10vh;">
+      <button mat-button matStepperPrevious>Retour</button>
+      <button mat-button matStepperNext>Suivant</button>
+    </div>
+  </mat-step>
+
+  <mat-step [stepControl]="thirdFormGroup" [optional]="isOptional">
+    <form [formGroup]="thirdFormGroup">
+      <ng-template matStepLabel>Consommation Totale d'eau</ng-template>
+      <mat-form-field>
+        <input matInput placeholder="Address" formControlName="secondCtrl" required>
+      </mat-form-field>
+      <div>
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button matStepperNext>Suivant</button>
+      </div>
+    </form>
+  </mat-step>
+
+  <!-- <mat-step [stepControl]="thirdFormGroup" [optional]="isOptional">
+    <form [formGroup]="thirdFormGroup">
+      <ng-template matStepLabel>Consommation Totale d'énergie</ng-template>
+      <mat-form-field>
+        <input matInput placeholder="Address" formControlName="secondCtrl" required>
+      </mat-form-field>
+      <div>
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button matStepperNext>Suivant</button>
+      </div>
+    </form>
+  </mat-step> -->
+
+  <mat-step>
+    <ng-template matStepLabel>Valider</ng-template>
+    You are now done.
+    <div>
+      <button mat-button matStepperPrevious>Back</button>
+      <button mat-button (click)="stepper.reset()">Reset</button>
+    </div>
+  </mat-step>
+</mat-horizontal-stepper>

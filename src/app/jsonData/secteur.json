@@ -1,0 +1,70 @@
+[
+  {
+    "id":1,
+    "libelle":"Agroalimentaire"
+  },
+  {
+    "id":2,
+    "libelle":"Banque / Assurance"
+  },
+  {
+    "id":3,
+    "libelle":"Bois / Papier / Carton / Imprimerie"
+  } ,
+  {
+    "id":4,
+    "libelle":"BTP / Matériaux de construction"
+  } ,
+  {
+    "id":5,
+    "libelle":"Chimie / Parachimie"
+  } ,
+  {
+    "id":6,
+    "libelle":"Commerce / Négoce / Distribution"
+  } ,
+  {
+    "id":7,
+    "libelle":"Édition / Communication / Multimédia"
+  } ,
+  {
+    "id":8,
+    "libelle":"Électronique / Électricité"
+  } ,
+  {
+    "id":9,
+    "libelle":"Études et conseils"
+  } ,
+  {
+    "id":10,
+    "libelle":"Industrie pharmaceutique"
+  } ,
+  {
+    "id":11,
+    "libelle":"Informatique / Télécoms"
+  } ,
+  {
+    "id":12,
+    "libelle":"Machines et équipements / Automobile"
+  } ,
+  {
+    "id":13,
+    "libelle":"Métallurgie / Travail du métal"
+  } ,
+  {
+    "id":14,
+    "libelle":"Plastique / Caoutchouc"
+  } ,
+  {
+    "id":15,
+    "libelle":"Services aux entreprises"
+  } ,
+  {
+    "id":16,
+    "libelle":"Textile / Habillement / Chaussure"
+  } ,
+  {
+    "id":17,
+    "libelle":"Transports / Logistique"
+  }
+]
