@@ -1,3 +1,4 @@
+import { MetricsComponent } from './composants/metrics/metrics.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AccueilComponent } from './composants/accueil/accueil.component';
@@ -7,7 +8,7 @@ import { AffichageActionsComponent } from './composants/affichage-actions/affich
 const routes: Routes = [
   {path:"",  component:AccueilComponent},
   {path:"affichageActions",component:AffichageActionsComponent, loadChildren:()=> import('./composants/affichage-actions/actions.module').then(m=>m.ActionsModule)},
-  // {path:"affichageActions",component:AffichageActionsComponent}
+  {path:"metrics",component:MetricsComponent}
 ];
 
 

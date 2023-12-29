@@ -50,7 +50,7 @@ export class ActionsComponent implements OnInit {
     evalImpact:['', Validators.required],
     engagement:['', Validators.required],
     incertitude:['', Validators.required],
-    commentaire:['', Validators.required],
+    // commentaire:['', Validators.required],
   });
 
 
@@ -82,7 +82,7 @@ export class ActionsComponent implements OnInit {
       evalImpact:['', Validators.required],
       engagement:['', Validators.required],
       incertitude:['', Validators.required],
-      commentaire:['', Validators.required],
+      // commentaire:['', Validators.required],
     });
 
     this.thirdFormGroup = this._formBuilder.group({

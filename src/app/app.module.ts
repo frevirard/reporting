@@ -19,6 +19,9 @@ import { ListeActionsComponent } from './composants/liste-actions/liste-actions.
 import {MatIconModule} from '@angular/material/icon';
 import { QuestionnairesComponent } from './composants/questionnaires/questionnaires.component';
 import {MatTableModule} from '@angular/material/table';
+import { MetricsComponent } from './composants/metrics/metrics.component';
+import { NgxChartsModule } from '@swimlane/ngx-charts';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -28,7 +31,8 @@ import {MatTableModule} from '@angular/material/table';
     AccueilComponent,
     AffichageActionsComponent,
     ListeActionsComponent,
-    QuestionnairesComponent
+    QuestionnairesComponent,
+    MetricsComponent
   ],
   imports: [
     BrowserModule,
@@ -43,7 +47,9 @@ import {MatTableModule} from '@angular/material/table';
     MatSelectModule,
     MatCardModule,
     MatIconModule,
-    MatTableModule
+    MatTableModule,
+    NgxChartsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
