@@ -8,11 +8,11 @@
     <!-- <input [(ngModel)]="this.searchvalue" type="text" id="myInput" onkeyup="myFunction()"
       placeholder="Rechercher par le nom" title="Type in a name"> -->
    <div style="display: flex;flex-direction: row; width: 100%;align-items: center;justify-content: flex-start;">
-    <input id="myInput" type="tel" style="width: 90%;" matInput placeholder="Search"  name= "search" [(ngModel)]= "this.searchvalue">
-    <button matSuffix mat-button><mat-icon >search</mat-icon></button>
+    <input (keyup)="this.myFunction()"  id="myInput" type="tel" style="width: 90%;" matInput placeholder="Search"  name= "search" [(ngModel)]= "this.searchvalue">
+    <!-- <button (click)="this.myFunction()" matSuffix mat-button><mat-icon >search</mat-icon></button> -->
 
    </div>
-      <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" style="width: 90%;" >
+      <table id="myTable" mat-table [dataSource]="dataSource" class="mat-elevation-z8" style="width: 90%;" >
 
         <!--- Note that these columns can be defined in any order.
               The actual rendered columns are set as a property on the row definition" -->
@@ -36,9 +36,9 @@
         </ng-container>
 
         <!-- Symbol Column -->
-        <ng-container matColumnDef="modifier">
-          <th mat-header-cell *matHeaderCellDef> Modifier </th>
-          <td mat-cell *matCellDef="let element">  </td>
+        <ng-container matColumnDef="Consulter">
+          <th mat-header-cell *matHeaderCellDef> Consulter </th>
+          <td mat-cell *matCellDef="let element">  	 </td>
         </ng-container>
 
         <tr mat-header-row *matHeaderRowDef=" columnsToDisplay"></tr>

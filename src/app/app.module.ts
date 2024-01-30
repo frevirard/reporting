@@ -22,6 +22,7 @@ import {MatTableModule} from '@angular/material/table';
 import { MetricsComponent } from './composants/metrics/metrics.component';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { HttpClientModule } from '@angular/common/http';
+import { SecondNAvComponent } from './composants/second-nav/second-nav.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { HttpClientModule } from '@angular/common/http';
     AffichageActionsComponent,
     ListeActionsComponent,
     QuestionnairesComponent,
-    MetricsComponent
+    MetricsComponent,
+    SecondNAvComponent
   ],
   imports: [
     BrowserModule,
@@ -48,7 +50,7 @@ import { HttpClientModule } from '@angular/common/http';
     MatCardModule,
     MatIconModule,
     MatTableModule,
-    NgxChartsModule,
+    // NgxChartsModule,
     HttpClientModule
   ],
   providers: [],

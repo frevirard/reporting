@@ -7,14 +7,14 @@
     "statut":1
   },
   {
-    "id":1,
+    "id":2,
     "nom":"Tesla",
     "idSecteur":4,
     "libelleSecteur":"Machines et équipements / Automobile",
     "statut":1
   },
   {
-    "id":1,
+    "id":4,
     "nom":"BNP PariBas",
     "idSecteur":7,
     "libelleSecteur":"Banque / Assurance",
@@ -22,7 +22,7 @@
   }
   ,
   {
-    "id":1,
+    "id":5,
     "nom":"NOKIA",
     "idSecteur":10,
     "libelleSecteur":"Informatique / Télécoms",
