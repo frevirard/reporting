@@ -2,7 +2,7 @@
   {
     "id":1,
     "nom":"Apple",
-    "idSecteur":2,
+    "idSecteur":11,
     "libelleSecteur":"Informatique / Télécoms",
     "statut":1
   },
@@ -27,5 +27,13 @@
     "idSecteur":10,
     "libelleSecteur":"Informatique / Télécoms",
     "statut":3
+  },
+
+  {
+    "id":1,
+    "nom":"Crayon Tech",
+    "idSecteur":2,
+    "libelleSecteur":"Informatique / Télécoms",
+    "statut":1
   }
 ]

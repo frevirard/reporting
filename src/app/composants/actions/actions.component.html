@@ -20,13 +20,13 @@
 
             <mat-form-field appearance="outline" style="max-width: 400px; min-width: 400px;">
               <mat-label>Nom</mat-label>
-              <input [(ngModel)]="this.action.nom" matInput placeholder="Nom" formControlName="firstCtrl" required>
+              <input [(ngModel)]="this.action.nom" matInput placeholder="Nom" formControlName="nom" required>
               <mat-hint>Renseignez le nom</mat-hint>
             </mat-form-field>
 
             <mat-form-field appearance="outline" style="max-width: 400px; min-width: 400px;">
               <mat-label>Secteur d'activité</mat-label>
-              <mat-select formControlName="secondCtrl" required [(ngModel)]="this.action.idSecteur">
+              <mat-select formControlName="idSecteur" required [(ngModel)]="this.action.idSecteur">
                 <div *ngFor="let secteur of this.secteurs">
                   <mat-option value={{secteur.id}}>{{secteur.libelle}}</mat-option>
                 </div>
@@ -214,10 +214,7 @@
 
             </div>
 
-
           </div>
-
-
 
         </mat-card>
 
@@ -232,7 +229,7 @@
   </mat-step>
 
   <mat-step [stepControl]="thirdFormGroup" [optional]="isOptional">
-    <form [formGroup]="thirdFormGroup">
+    <form [formGroup]="thirdFormGroup" style="display: flex; flex-direction:column; justify-content: center; align-items: center; min-height: 80%;">
       <ng-template matStepLabel>Consommation Totale d'Eau</ng-template>
 
       <mat-card
@@ -395,12 +392,172 @@
 
     </mat-card>
 
-      <div style="display: flex; justify-content: space-around; margin-top: 10vh;">
-        <button mat-button matStepperPrevious>Back</button>
-        <button mat-button matStepperNext (click)="this.addIdQuestionConso()">Suivant</button>
-      </div>
     </form>
+
+
+    <div style="display: flex; justify-content: space-around; margin-top: 10vh;">
+      <button mat-button matStepperPrevious>Retour</button>
+      <button mat-button matStepperNext (click)="this.addIdQuestionConso()">Suivant</button>
+    </div>
   </mat-step>
+<!--  Questionnaire EthiTrack-->
+
+
+<mat-step [stepControl]="fourthFormGroup" [optional]="isOptional">
+  <form [formGroup]="fourthFormGroup" style="display: flex; flex-direction:column; justify-content: center; align-items: center; min-height: 80%;">
+    <ng-template matStepLabel>Émissions Totales de GES par Année</ng-template>
+
+    <mat-card
+    style="display: flex; flex-direction:column; justify-content: center; align-items: center; max-width: 700px;min-width: 700px;">
+    <mat-card-header>
+
+    </mat-card-header>
+
+    <div style="display: flex ; flex-direction: column; justify-content: space-between;">
+      <!-- fields 1 -2  -->
+      <div style="display: flex;flex-direction: row; justify-content: space-around;width: 700px;">
+        <mat-form-field appearance="outline" style="max-width: 300px; min-width: 300px;">
+
+          <!-- fields 1 -->
+          <mat-label>Année de référence</mat-label>
+          <input [(ngModel)]="this.questGES.anneeReference" matInput placeholder="Année de référence"
+            formControlName="anneeReference" required type="number">
+          <mat-hint>Compris entre 2000-2024</mat-hint>
+        </mat-form-field>
+
+        <!-- fields 2 -->
+        <mat-form-field field appearance="outline" style="max-width: 300px; min-width: 300px;">
+          <mat-label>Portée des émissions</mat-label>
+          <mat-select formControlName="porteeEmission" required [(ngModel)]="this.questGES.porteeEmission">
+            <mat-option value="Émissions directes liées à la société (Scope 1)">Émissions directes liées à la société (Scope 1)</mat-option>
+            <mat-option value="Émissions indirectes liées à l'énergie (Scope 2)">Émissions indirectes liées à l'énergie (Scope 2)</mat-option>
+            <mat-option value="Émissions indirectes liées aux activités hors énergie (Scope 3)">Émissions indirectes liées aux activités hors énergie (Scope 3)</mat-option>
+            <mat-option value="Total (Scope 1 + Scope 2 + Scope 3)">Total (Scope 1 + Scope 2 + Scope 3)</mat-option>
+          </mat-select>
+          <mat-hint>Renseignez la portée des émissions</mat-hint>
+        </mat-form-field>
+      </div>
+
+      <div style="display: flex;flex-direction: row; justify-content: space-around;width: 700px;">
+
+        <!-- fields 3 -4  -->
+
+        <!-- fields 3 -->
+        <mat-form-field appearance="outline" style="max-width: 300px; min-width: 300px;">
+          <mat-label>Catégories d'Émissions</mat-label>
+          <mat-select formControlName="catEmission" required
+            [(ngModel)]="this.questGES.catEmission">
+
+            <mat-option value="Émissions de dioxyde de carbone (CO2)">Émissions de dioxyde de carbone (CO2)</mat-option>
+            <mat-option value="Émissions de méthane (CH4)">Émissions de méthane (CH4)</mat-option>
+            <mat-option value="Émissions d'oxyde nitreux (N2O)">Émissions d'oxyde nitreux (N2O)</mat-option>
+            <mat-option value="Autre">Autre</mat-option>
+          </mat-select>
+          <mat-hint>Renseignez la Catégories d'Émissions</mat-hint>
+        </mat-form-field>
+
+        <!-- fields 4 -->
+        <mat-form-field appearance="outline" style="max-width: 300px; min-width: 300px;">
+          <mat-label>Ordre de Grandeur des Émissions de GES</mat-label>
+          <mat-select formControlName="ordreGrandeur" required
+            [(ngModel)]="this.questGES.ordreGrandeur">
+
+            <mat-option value="Faible (moins de 1 000 tonnes de CO2 équivalent)">Faible (moins de 1 000 tonnes de CO2 équivalent)</mat-option>
+            <mat-option value="Modéré (1 000 à 10 000 tonnes de CO2 équivalent)">Modéré (1 000 à 10 000 tonnes de CO2 équivalent)</mat-option>
+            <mat-option value="Élevé (plus de 10 000 tonnes de CO2 équivalent)">Élevé (plus de 10 000 tonnes de CO2 équivalent)</mat-option>
+            <mat-option value="Impossible à estimer actuellement">Impossible à estimer actuellement</mat-option>
+            <mat-option value="Autre">Autre</mat-option>
+          </mat-select>
+          <mat-hint>Renseignez l'Ordre de Grandeur des Émissions de GES</mat-hint>
+        </mat-form-field>
+
+      </div>
+
+      <div style="display: flex;flex-direction: row; justify-content: space-around;width: 700px;">
+        <!-- champs de saisie 5 -6 -->
+
+        <!-- fields 5 -->
+        <mat-form-field appearance="outline" style="max-width: 300px; min-width: 300px;">
+          <mat-label>Catégories principales vos émissions de GES</mat-label>
+          <mat-select formControlName="categorie" required [(ngModel)]="this.questGES.categorie">
+
+            <mat-option value="Approvisionnement et Achats">Approvisionnement et Achats</mat-option>
+            <mat-option value="Transport">Transport</mat-option>
+            <mat-option value="Utilisation des Produits">Utilisation des Produits</mat-option>
+            <mat-option value="Fin de Vie des Produits">Fin de Vie des Produits</mat-option>
+            <mat-option value="Investissements">Investissements</mat-option>
+            <mat-option value="Autre">Autre</mat-option>
+          </mat-select>
+          <mat-hint>Renseignez les Catégories</mat-hint>
+        </mat-form-field>
+
+
+        <!-- fields 6 -->
+        <mat-form-field appearance="outline" style="max-width: 300px; min-width: 300px;">
+          <mat-label>Méthodologie de Calcul</mat-label>
+          <mat-select formControlName="methCalcul" required [(ngModel)]="this.questGES.methCalcul">
+            <mat-option value="Utilisation des données fournies par la société">Utilisation des données fournies par la société</mat-option>
+            <mat-option value="Utilisation des facteurs d'émission standards">Utilisation des facteurs d'émission standards</mat-option>
+            <mat-option value="Utilisation de données tierces">Utilisation de données tierces</mat-option>
+            <mat-option value="Autre">Autre</mat-option>
+          </mat-select>
+          <mat-hint>Renseignez la méthodologie de calcul</mat-hint>
+        </mat-form-field>
+      </div>
+
+      <div style="display: flex;flex-direction: row; justify-content: space-around;width: 700px;">
+        <!-- champs de saisie 9 -->
+        <!-- fields 9 -->
+
+
+        <mat-form-field class="example-full-width"  style="max-width: 300px; min-width: 300px;" >
+          <mat-label>Précisions sur la Méthodologie de Collecte de Données</mat-label>
+          <textarea style="min-height: 120px;" matInput placeholder="Ex. It makes me feel..."
+          formControlName="precisionMethCalcul" required [(ngModel)]="this.questGES.precisionMethCalcul"
+          ></textarea>
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width"  style="max-width: 300px; min-width: 300px;" >
+          <mat-label>Laissez un commentaire</mat-label>
+          <textarea style="min-height: 120px;" matInput placeholder="Ex. It makes me feel..."
+          formControlName="commRemarqueAdditionnelles" required [(ngModel)]="this.questGES.commRemarqueAdditionnelles"
+          ></textarea>
+        </mat-form-field>
+
+      </div>
+
+      <div style="display: flex;flex-direction: row;justify-content: flex-start;width: 700px;">
+        <!-- champs de saisie 7- 8 -->
+
+        <!-- fields 7 -->
+
+
+        <!-- fields 8 -->
+        <mat-form-field appearance="outline" style="max-width: 300px; min-width: 300px;">
+          <mat-label>Facteurs d'incertitude</mat-label>
+          <mat-select formControlName="facteurIncertitude" required [(ngModel)]="this.questGES.facteurIncertitude">
+
+            <mat-option value="Faible">Faible</mat-option>
+            <mat-option value="Modéré">Modéré</mat-option>
+            <mat-option value="Élevé">Élevé</mat-option>
+            <mat-option value="Inconnu">Inconnu</mat-option>
+          </mat-select>
+          <mat-hint>Renseignez le secteur d'activité</mat-hint>
+        </mat-form-field>
+      </div>
+
+    </div>
+  </mat-card>
+
+
+  </form>
+
+  <div style="display: flex; justify-content: space-around; margin-top: 10vh;">
+    <button mat-button matStepperPrevious>Retour</button>
+    <button mat-button matStepperNext (click)="this.addIdQuestionGes()">Suivant</button>
+  </div>
+</mat-step>
+
 
   <!-- <mat-step [stepControl]="thirdFormGroup" [optional]="isOptional">
     <form [formGroup]="thirdFormGroup">
@@ -417,11 +574,11 @@
 
   <mat-step>
     <ng-template matStepLabel>Valider</ng-template>
-    You are now done.
-    <div>
-      <button mat-button matStepperPrevious>Back</button>
+    Vous avez fini !.
+    <div  style="display: flex; justify-content: space-around; margin-top: 10vh;">
+      <button mat-button matStepperPrevious>Retour</button>
       <!-- <button mat-button (click)="stepper.reset()">Reset</button> -->
-      <button mat-button (click)="this.addAction()">Reset</button>
+      <button mat-button (click)="stepper.reset()" >Nouvelle Saisie</button>
     </div>
   </mat-step>
 </mat-horizontal-stepper>

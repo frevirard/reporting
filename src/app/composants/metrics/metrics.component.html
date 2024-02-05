@@ -1,0 +1,43 @@
+<div style="display: flex;flex-direction: row;flex-wrap: wrap; margin: 1%; background-color: white;">
+
+  <div style="margin: 1%;background-color: white;">
+    <ngx-charts-bar-vertical [view]="[650,400]" [results]="consoEau" [xAxisLabel]="'Volume Eau'"
+      [legendTitle]="'Conso. Tot. Eau'" [yAxisLabel]="'Nombre Entreprise'" [legend]="true" [showXAxisLabel]="true"
+      [showYAxisLabel]="true" [xAxis]="true" [yAxis]="true" [gradient]="true">
+    </ngx-charts-bar-vertical>
+
+  </div>
+
+  <div style="margin: 1%; background-color: white;">
+    <ngx-charts-bar-horizontal [view]="[650,400]" [results]="saleData" [xAxisLabel]="'Products'"
+      [legendTitle]="'Product Sale Chart'" [yAxisLabel]="'Sale'" [legend]="true" [showXAxisLabel]="true"
+      [showYAxisLabel]="true" [xAxis]="true" [yAxis]="true" [gradient]="true">
+    </ngx-charts-bar-horizontal>
+  </div>
+
+  <div style="margin: 1%; background-color: white;">
+    <ngx-charts-pie-chart [results]="saleData" [legend]="true" [legendTitle]="'Product Sale Report'" [view]="[700,300]"
+      [labels]="true">
+    </ngx-charts-pie-chart>
+  </div>
+
+
+
+  <div style="margin: 1%; background-color: white;">
+    <ngx-charts-pie-grid [results]="saleData"
+    [view]="[700,300]"
+     >
+    </ngx-charts-pie-grid>
+  </div>
+
+
+<!--
+  <div style="margin: 1%; background-color: white;">
+    <ngx-charts-polar-chart [results]="saleData"
+    [view]="[700,300]"
+     >
+    </ngx-charts-polar-chart>
+  </div> -->
+
+
+</div>

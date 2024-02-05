@@ -24,6 +24,7 @@ import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { HttpClientModule } from '@angular/common/http';
 import { SecondNAvComponent } from './composants/second-nav/second-nav.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -50,7 +51,7 @@ import { SecondNAvComponent } from './composants/second-nav/second-nav.component
     MatCardModule,
     MatIconModule,
     MatTableModule,
-    // NgxChartsModule,
+    NgxChartsModule,
     HttpClientModule
   ],
   providers: [],

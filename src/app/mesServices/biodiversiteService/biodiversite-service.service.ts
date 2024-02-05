@@ -14,7 +14,7 @@ export class BiodiversiteServiceService {
   }
 
   findBioById(idRecherche:number) {
-   var bio = this.bio.find(x=>x.id == idRecherche)
+   var bio = this.bio.find(x=>x.idAction == idRecherche)
 
    if (bio) {
     return bio

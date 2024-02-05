@@ -48,7 +48,7 @@ nav {
 
 	&.active {
 		color: $primary;
-		text-shadow: 0 0 3px hsla(260, 100%, 70%, 0.7);
+		text-shadow: 0 0 3px #4DB6AC(260, 100%, 70%, 0.7);
 	}
 
 	&:not(.active):hover {

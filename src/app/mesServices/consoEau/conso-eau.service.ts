@@ -14,7 +14,7 @@ export class ConsoEauService {
   }
 
   findConsoById(idRecherche:number) {
-   var quest = this.questConsos.find(x=>x.id == idRecherche)
+   var quest = this.questConsos.find(x=>x.idAction == idRecherche)
 
    if (quest) {
     return quest

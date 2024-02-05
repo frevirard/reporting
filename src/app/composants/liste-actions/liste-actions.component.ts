@@ -2,6 +2,7 @@ import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import actions from './../../jsonData/listeActions.json'
 import { Action } from 'src/app/DAO/action';
 import { ActionsService } from 'src/app/mesServices/actionServices/actions.service';
+import { Router, RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-liste-actions',
@@ -17,11 +18,8 @@ export class ListeActionsComponent implements OnInit,OnChanges {
   columnsToDisplay = ['nom', 'secteur', 'statut', 'Consulter'];
 
 
-  constructor(private actionsSevice:ActionsService) { }
+  constructor(private actionsSevice:ActionsService, private router:Router) { }
   ngOnChanges(changes: SimpleChanges): void {
-    // throw new Error('Method not implemented.');
-    // console.log (changes)
-    // this.myFunction()
   }
 
   ngOnInit(): void {
@@ -47,6 +45,12 @@ export class ListeActionsComponent implements OnInit,OnChanges {
          }
        }
      }
-    console.log(this.searchvalue);
   }
+
+  modifier(element:Action) {
+      console.log(element);
+      this.actionsSevice.passAction(element);
+      this.router.navigateByUrl("affichageActions/actions")
+    }
+
 }
