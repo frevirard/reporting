@@ -3,7 +3,7 @@
 
 }
 
-$primary: hsl(260, 100%, 80%);
+$primary: #4DB6AC(260, 100%, 80%);
 
 html,
 body {
@@ -47,8 +47,8 @@ nav {
 	transition: all 80ms ease;
 
 	&.active {
-		color: $primary;
-		text-shadow: 0 0 3px #4DB6AC(260, 100%, 70%, 0.7);
+    color: #4db6ac;
+    text-shadow: 0 0 3px #4DB6AC 260, 100%, 70%, 0.7;
 	}
 
 	&:not(.active):hover {
@@ -104,4 +104,11 @@ nav {
 	.icon > svg {
 		max-width: 16px;
 	}
+
+  .nav-item.active[_ngcontent-iih-c107] {
+    color: #4db6ac;
+    text-shadow: 0 0 3px #4DB6AC 260, 100%, 70%, 0.7;
+  }
+
+
 }

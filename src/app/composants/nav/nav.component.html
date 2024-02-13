@@ -1,23 +1,23 @@
 <nav class="menu" id="nav">
-	<span class="nav-item active">
-		<span class="icon">
+	<span  routerLink="/" class="nav-item active">
+		<span class="icon" routerLink="/">
 			<!-- <i data-feather="home"></i> -->
       <mat-icon >home</mat-icon>
 		</span>
 
-		<a routerLink="/">Accueil</a>
+		<a >Accueil</a>
 	</span>
-	<span class="nav-item">
-		<span class="icon">
+	<span class="nav-item" routerLink="/affichageActions">
+		<span class="icon"  routerLink="/affichageActions">
 			<mat-icon >account_balance</mat-icon>
 		</span>
-		<a routerLink="/affichageActions">Actions</a>
+		<a >Actions</a>
 	</span>
-	<span class="nav-item">
-		<span class="icon">
+	<span routerLink="/metrics" class="nav-item">
+		<span class="icon" routerLink="/metrics">
 			<mat-icon >bar_chart</mat-icon>
 		</span>
-		<a routerLink="/metrics">Metrics</a>
+		<a >Metrics</a>
 	</span>
 	<span class="nav-item">
 		<span class="icon">

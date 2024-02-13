@@ -2,7 +2,7 @@
   {{!isOptional ? 'Enable optional steps' : 'Disable optional steps'}}
 </button> -->
 
-<mat-horizontal-stepper linear #stepper style="margin-top:10vh ;" class="zoneAffichage">
+<mat-horizontal-stepper linear #stepper style="margin-top:10vh ;" class="zoneAffichageAction">
   <mat-step [stepControl]="firstFormGroup">
     <form [formGroup]="firstFormGroup"
       style="display: flex; flex-direction:column; justify-content: center; align-items: center; min-height: 80%;">
@@ -18,13 +18,13 @@
 
           <div style="display: flex ; flex-direction: column; justify-content: space-between;">
 
-            <mat-form-field appearance="outline" style="max-width: 400px; min-width: 400px;">
+            <mat-form-field appearance="outline" style="max-width: 400px; min-width: 100px; width: 15vw;">
               <mat-label>Nom</mat-label>
               <input [(ngModel)]="this.action.nom" matInput placeholder="Nom" formControlName="nom" required>
               <mat-hint>Renseignez le nom</mat-hint>
             </mat-form-field>
 
-            <mat-form-field appearance="outline" style="max-width: 400px; min-width: 400px;">
+            <mat-form-field appearance="outline"  style="max-width: 400px; min-width: 100px; width: 15vw;">
               <mat-label>Secteur d'activité</mat-label>
               <mat-select formControlName="idSecteur" required [(ngModel)]="this.action.idSecteur">
                 <div *ngFor="let secteur of this.secteurs">
@@ -576,7 +576,7 @@
     <ng-template matStepLabel>Valider</ng-template>
     Vous avez fini !.
     <div  style="display: flex; justify-content: space-around; margin-top: 10vh;">
-      <button mat-button matStepperPrevious>Retour</button>
+      <button mat-button  (click)="stepper.previous()">Retour</button>
       <!-- <button mat-button (click)="stepper.reset()">Reset</button> -->
       <button mat-button (click)="stepper.reset()" >Nouvelle Saisie</button>
     </div>

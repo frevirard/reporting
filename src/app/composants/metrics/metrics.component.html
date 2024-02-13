@@ -1,33 +1,71 @@
 <div style="display: flex;flex-direction: row;flex-wrap: wrap; margin: 1%; background-color: white;">
 
-  <div style="margin: 1%;background-color: white;">
-    <ngx-charts-bar-vertical [view]="[650,400]" [results]="consoEau" [xAxisLabel]="'Volume Eau'"
+  <div  #containerRef style="margin: 1%;background-color: white; width: 45%;  ">
+    <ngx-charts-bar-vertical [view]="[containerRef.offsetWidth,400]" [results]="consoEau" [xAxisLabel]="'Volume Eau'"
       [legendTitle]="'Conso. Tot. Eau'" [yAxisLabel]="'Nombre Entreprise'" [legend]="true" [showXAxisLabel]="true"
       [showYAxisLabel]="true" [xAxis]="true" [yAxis]="true" [gradient]="true">
     </ngx-charts-bar-vertical>
 
+    <div style="background: linear-gradient(45deg, #bbbbbb, transparent); width: 100%;display: flex;align-items: center;justify-content: center;flex-direction: column;">
+      <p style="text-transform: uppercase;"> Questionnaire - Consommation d&#39;Eau par Unité de Production</p>
+      <p>Type de Mesures/Initiatives Prises</p>
+    </div>
+
   </div>
 
-  <div style="margin: 1%; background-color: white;">
-    <ngx-charts-bar-horizontal [view]="[650,400]" [results]="saleData" [xAxisLabel]="'Products'"
-      [legendTitle]="'Product Sale Chart'" [yAxisLabel]="'Sale'" [legend]="true" [showXAxisLabel]="true"
+  <div  #containerRefTwo style="margin: 1%; background-color: white; width: 45%">
+    <ngx-charts-bar-horizontal [view]="[containerRefTwo.offsetWidth,400]" [results]="typeMesure" [xAxisLabel]="'Mesures'"
+      [legendTitle]="'Type de mesures'" [yAxisLabel]="'Nombre'" [legend]="true" [showXAxisLabel]="true"
       [showYAxisLabel]="true" [xAxis]="true" [yAxis]="true" [gradient]="true">
     </ngx-charts-bar-horizontal>
+
+    <div style="background: linear-gradient(45deg, #bbbbbb, transparent); width: 100%;display: flex;align-items: center;justify-content: center;flex-direction: column;">
+      <p style="text-transform: uppercase;"> Questionnaire - Mesures et Initiatives de Conservation de la Biodiversité</p>
+      <p>Type de Mesures/Initiatives Prises</p>
+    </div>
+
   </div>
 
-  <div style="margin: 1%; background-color: white;">
-    <ngx-charts-pie-chart [results]="saleData" [legend]="true" [legendTitle]="'Product Sale Report'" [view]="[700,300]"
+  <div  #containerRefThree style="margin: 1%; background-color: white; width: 45%">
+    <ngx-charts-pie-chart [results]="formationPersonnel " [legend]="true" [legendTitle]="'Formation du Personnel'" [view]="[containerRefThree.offsetWidth,300]"
       [labels]="true">
     </ngx-charts-pie-chart>
+
+    <div style="background: linear-gradient(45deg, #bbbbbb, transparent); width: 100%;display: flex;align-items: center;justify-content: center;flex-direction: column;">
+      <p style="text-transform: uppercase;"> Questionnaire - Mesures et Initiatives de Conservation de la Biodiversité</p>
+      <p>Formation et Sensibilisation du Personnel</p>
+    </div>
+
   </div>
 
 
-
-  <div style="margin: 1%; background-color: white;">
-    <ngx-charts-pie-grid [results]="saleData"
-    [view]="[700,300]"
+  <div  #containerRefFour style="margin: 1%; background-color: white; width: 45%">
+    <ngx-charts-pie-grid [results]="OrdreGrandeurGES"
+    [view]="[containerRefFour.offsetWidth,300]"
      >
     </ngx-charts-pie-grid>
+
+    <div style="background: linear-gradient(45deg, #bbbbbb, transparent); width: 100%;display: flex;align-items: center;justify-content: center;flex-direction: column;">
+      <p style="text-transform: uppercase;"> Questionnaire - Émissions Totales de GES par Année </p>
+      <p>Ordre de Grandeur des Émissions de GES</p>
+    </div>
+
+  </div>
+
+
+  <div  #containerRefFive style="margin: 1%; background-color: white; width: 45%">
+    <ngx-charts-number-card [results]=" pourcentFemme"
+    [view]="[containerRefFive.offsetWidth,300]"
+     >
+    </ngx-charts-number-card>
+
+    <div style="background: linear-gradient(45deg, #bbbbbb, transparent); width: 100%;display: flex;align-items: center;justify-content: center;flex-direction: column;">
+      <p style="text-transform: uppercase; text-align: center;"> Questionnaire - Pourcentage de Postes de Direction occupés par des Femmes ou des
+        Minorités </p>
+      <p>Au sein de votre entreprise, quel est le pourcentage global de postes de direction
+        occupés par des femmes ?</p>
+    </div>
+
   </div>
 
 
