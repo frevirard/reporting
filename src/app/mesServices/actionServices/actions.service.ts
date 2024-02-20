@@ -11,7 +11,9 @@ export class ActionsService {
 
   actions:Action[] = [];
   passedAction:Action = {
+    id:0,
     nom: '',
+    idSecteur: 0,
     statut: 0
   };
 
@@ -34,7 +36,9 @@ export class ActionsService {
 
   resetPasseAction() {
     this.passedAction =  {
+      id:0,
       nom: '',
+      idSecteur: 0,
       statut: 0
     };
   }

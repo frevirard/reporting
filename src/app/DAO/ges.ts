@@ -1,6 +1,8 @@
 export interface Ges {
   id:number,
   idAction:number,
+
+
   anneeReference:number,
   porteeEmission:string,
   catEmission:string,

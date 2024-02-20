@@ -105,10 +105,25 @@ nav {
 		max-width: 16px;
 	}
 
-  .nav-item.active[_ngcontent-iih-c107] {
-    color: #4db6ac;
-    text-shadow: 0 0 3px #4DB6AC 260, 100%, 70%, 0.7;
+  .nav-item.active {
+    width: 200px;
+    background-color: #4DB6AC;
   }
 
+  .active-link {
+    background-color: #4DB6AC;
+
+  }
+
+  .active p {
+    color: #fff;
+  }
+
+.glow {
+  // font-size: 80px;
+  color: #fff;
+  text-align: center;
+  padding-top: 12px;
+}
 
 }

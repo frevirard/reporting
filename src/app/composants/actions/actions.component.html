@@ -3,9 +3,9 @@
 </button> -->
 
 <mat-horizontal-stepper linear #stepper style="margin-top:10vh ;" class="zoneAffichageAction">
-  <mat-step [stepControl]="firstFormGroup">
+  <mat-step [stepControl]="firstFormGroup" >
     <form [formGroup]="firstFormGroup"
-      style="display: flex; flex-direction:column; justify-content: center; align-items: center; min-height: 80%;">
+      style="display: flex; flex-direction:column; justify-content: center; align-items: center; min-height: 80%; ;">
 
       <div>
         <ng-template matStepLabel>Infos Entreprise</ng-template>
@@ -576,7 +576,8 @@
     <ng-template matStepLabel>Valider</ng-template>
     Vous avez fini !.
     <div  style="display: flex; justify-content: space-around; margin-top: 10vh;">
-      <button mat-button  (click)="stepper.previous()">Retour</button>
+      <!-- <button mat-button  (click)="stepper.previous()">Retour</button> -->
+      <button mat-button matStepperPrevious>Back</button>
       <!-- <button mat-button (click)="stepper.reset()">Reset</button> -->
       <button mat-button (click)="stepper.reset()" >Nouvelle Saisie</button>
     </div>

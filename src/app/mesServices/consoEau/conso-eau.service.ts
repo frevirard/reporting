@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { ConsoEau } from 'src/app/DAO/consoEau';
+import listeQuestEau from 'src/app/jsonData/listeQuestEau.json'
 
 @Injectable({
   providedIn: 'root'
@@ -7,7 +8,9 @@ import { ConsoEau } from 'src/app/DAO/consoEau';
 export class ConsoEauService {
 
   questConsos:ConsoEau[] = [];
-  constructor() { }
+  constructor() {
+    this.questConsos = listeQuestEau;
+  }
 
   addConso(questionnaireConso:ConsoEau) {
     this.questConsos.push(questionnaireConso)

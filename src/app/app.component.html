@@ -1,6 +1,10 @@
-<div style=" position:  sticky; width: 100%;top: 0;">
-  <app-nav> </app-nav>
+<div style="height: 100%; display: flex;flex-direction: column;">
+  <div style=" position:  sticky; width: 100%;top: 0;">
+    <app-nav> </app-nav>
+  </div>
+
+  <div style="height: 100%;">
+    <router-outlet ></router-outlet>
+  </div>
+
 </div>
-
-  <router-outlet ></router-outlet>
-

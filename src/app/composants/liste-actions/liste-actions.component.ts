@@ -1,8 +1,17 @@
+import { DialogComponentComponent } from './../dialog-component/dialog-component.component';
 import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import actions from './../../jsonData/listeActions.json'
 import { Action } from 'src/app/DAO/action';
 import { ActionsService } from 'src/app/mesServices/actionServices/actions.service';
 import { Router, RouterModule } from '@angular/router';
+import {
+  MatDialog,
+  MatDialogRef,
+  MatDialogActions,
+  MatDialogClose,
+  MatDialogTitle,
+  MatDialogContent,
+} from '@angular/material/dialog';
 
 @Component({
   selector: 'app-liste-actions',
@@ -15,15 +24,27 @@ export class ListeActionsComponent implements OnInit,OnChanges {
   searchvalue:string = ""
   actions:Action[] = []
   dataSource = actions;
-  columnsToDisplay = ['nom', 'secteur', 'statut', 'Consulter'];
+  columnsToDisplay = ['nom', 'secteur', 'statut', 'Consulter','Modifier'];
 
 
-  constructor(private actionsSevice:ActionsService, private router:Router) { }
+  constructor(private actionsSevice:ActionsService, private router:Router,public dialog: MatDialog) { }
   ngOnChanges(changes: SimpleChanges): void {
   }
 
   ngOnInit(): void {
     this.actions = this.actionsSevice.getAction();
+  }
+
+
+
+  openDialog(action:Action) {
+    const dialogRef = this.dialog.open(DialogComponentComponent,{
+      data: action,
+   });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    });
   }
 
 

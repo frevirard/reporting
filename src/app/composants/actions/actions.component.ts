@@ -1,3 +1,4 @@
+import { GesService } from './../../mesServices/gesService/ges.service';
 import { ConsoEauService } from './../../mesServices/consoEau/conso-eau.service';
 import { Secteur } from './../../DAO/secteur';
 import { Component, OnDestroy, OnInit } from '@angular/core';
@@ -22,6 +23,7 @@ export class ActionsComponent implements OnInit, OnDestroy {
   secteurs:Secteur[] = []
   listeActions: Action[] = []
   action:Action = {
+    id:0,
     nom: '',
     idSecteur: 0,
     statut: 0
@@ -120,8 +122,9 @@ export class ActionsComponent implements OnInit, OnDestroy {
 
   isOptional = false;
 
-  constructor(private _formBuilder: FormBuilder, private actionsService: ActionsService, private bioDiversiteService:BiodiversiteServiceService
-    ,private consoEauService:ConsoEauService) {}
+  constructor(private _formBuilder: FormBuilder, private actionsService: ActionsService,
+    private bioDiversiteService:BiodiversiteServiceService
+    ,private consoEauService:ConsoEauService, private questGestService:GesService) {}
   ngOnDestroy(): void {
     this.actionsService.resetPasseAction();
 
@@ -139,8 +142,11 @@ export class ActionsComponent implements OnInit, OnDestroy {
 
     if(this.consoEauService.findConsoById(this.action.id!)) {
       this.questConsoEau = this.consoEauService.findConsoById(this.action.id!)!
+    };
+
+    if(this.questGestService.findGesById(this.action.id!)) {
+      this.questGES = this.questGestService.findGesById(this.action.id!)!;
     }
-     ;
 
     this.firstFormGroup = this._formBuilder.group({
       nom: ['', Validators.required],
@@ -173,61 +179,73 @@ export class ActionsComponent implements OnInit, OnDestroy {
        commentaire:['' ],
      });
 
-    // this.fourthFormGroup = this._formBuilder.group({
-    //   anneeReference: ['', [Validators.maxLength(4),Validators.min(2000),Validators.max(2024)]],
-    //   typeInstallation:['', Validators.required],
-    //   sourceAppro: ['', Validators.required],
-    //   usageEauMesure:['', Validators.required],
-    //   methodeMesure:['', Validators.required],
-    //   consoEau:['', Validators.required],
-    //   evolution:['', Validators.required],
-    //   mesurePrise:['', Validators.required],
-    //   facteurIncertitude:['', Validators.required],
-    //   commentaire:['']
+     this.fourthFormGroup = this._formBuilder.group({
+       anneeReference: ['', [Validators.maxLength(4),Validators.min(2000),Validators.max(2024)]],
+       porteeEmission:['', Validators.required],
+       catEmission: ['', Validators.required],
+       ordreGrandeur:['', Validators.required],
+       categorie:['', Validators.required],
+       methCalcul:['', Validators.required],
+       precisionMethCalcul:['', Validators.required],
+       facteurIncertitude:['', Validators.required],
+       commRemarqueAdditionnelles:['']
 
-    // });
+     });
   }
 
 
 
   addAction() {
-    if (this.action.idSecteur == 0) {
-      return
-    }
 
-    this.action.id = Math.floor(Math.random() * 1000)
+    if(this.action.id === 0 ) {
+      this.action.id = Math.floor(Math.random() * 50000)
+    } else {
+      console.log("rien");
+      console.log(this.action);
+    }
     this.action.libelleSecteur = this.secteurs.find(x=>x.id == this.action.idSecteur)?.libelle;
     this.actionsService.addAction(this.action)
+
+
+    this.questBiodiversite.idAction = this.action.id!;
+    this.questConsoEau.idAction = this.action.id!;
+    this.questGES.idAction = this.action.id!;
+    console.log(this.action);
+    console.log(this.questBiodiversite);
+    console.log(this.questConsoEau);
+    console.log(this.questGES)
+
     this.action = {
+      id:0,
       nom: '',
       idSecteur: 0,
       statut: 0
     }
 
-    console.log(this.questBiodiversite);
-    console.log(this.questConsoEau);
-    console.log(this.questGES)
+
     // Penser à mettre en place les modif
 
   }
 
   addIdQuestionBio() {
-      if (this.questBiodiversite.id == 0 ) {
-        this.questBiodiversite.id = Math.floor(Math.random() * 1000)
-      }
+      if (this.questBiodiversite.id === 0 ) {
+        this.questBiodiversite.id = Math.floor(Math.random() * 50000)
+      };
 
-      if (this.questBiodiversite.idAction == 0 && this.action.id) {
+      if (this.questBiodiversite.idAction === 0 && this.action.id) {
         this.questBiodiversite.idAction = this.action.id
-      }
+      };
+      console.log(this.action);
+      console.log(this.questBiodiversite)
   }
 
 
   addIdQuestionConso() {
-    if (this.questConsoEau.id == 0 ) {
-      this.questConsoEau.id = Math.floor(Math.random() * 1000)
+    if (this.questConsoEau.id === 0 ) {
+      this.questConsoEau.id = Math.floor(Math.random() * 50000)
     }
 
-    if (this.questConsoEau.idAction == 0 && this.action.id) {
+    if (this.questConsoEau.idAction === 0 && this.action.id) {
       this.questConsoEau.idAction = this.action.id
     }
 
@@ -235,12 +253,8 @@ export class ActionsComponent implements OnInit, OnDestroy {
 }
 
 addIdQuestionGes() {
-  if (this.questGES.id == 0 ) {
-    this.questGES.id = Math.floor(Math.random() * 1000)
-  }
-
-  if (this.questGES.idAction == 0 && this.action.id) {
-    this.questGES.idAction = this.action.id
+  if (this.questGES.id === 0 ) {
+    this.questGES.id = Math.floor(Math.random() * 50000)
   }
 
   this.addAction()

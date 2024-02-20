@@ -1,12 +1,22 @@
 <nav class="menu" id="nav">
-	<span  routerLink="/" class="nav-item active">
-		<span class="icon" routerLink="/">
+
+
+  <span  [routerLink]="['/']" class="nav-item" style="display: flex;align-items: center;justify-content: center;" [routerLinkActive]="'nav-item active'">
+
+
+    <p class="glow" >ETHI'TRACK</p>
+		<!-- <img style="background-color: black; object-fit: contain;" src="/assets/images/logo.png" alt="image"> -->
+	</span>
+
+
+	<!-- <span  routerLink="/" class="nav-item">
+		<span class="icon" routerLink="/"> -->
 			<!-- <i data-feather="home"></i> -->
-      <mat-icon >home</mat-icon>
+      <!-- <mat-icon >home</mat-icon>
 		</span>
 
 		<a >Accueil</a>
-	</span>
+	</span> -->
 	<span class="nav-item" routerLink="/affichageActions">
 		<span class="icon"  routerLink="/affichageActions">
 			<mat-icon >account_balance</mat-icon>
@@ -19,13 +29,13 @@
 		</span>
 		<a >Metrics</a>
 	</span>
-	<span class="nav-item">
+	<span class="nav-item" routerLink="/telechargements">
 		<span class="icon">
 			<mat-icon ><span class="material-symbols-outlined">
         legend_toggle
         </span></mat-icon>
 		</span>
-		<a routerLink="#">Reporting</a>
+		<a routerLink="#">Telechargements</a>
 	</span>
 
 </nav>

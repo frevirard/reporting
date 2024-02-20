@@ -1,0 +1,30 @@
+<div style="width: 50vw;">
+  <h2  mat-dialog-title>Fiche {{data.nom}} </h2>
+</div>
+
+<mat-dialog-content class="mat-typography">
+    <div >
+      <p> Questionnaire Bio-diversité</p>
+
+      <div style="width: 50vw;display: flex; flex-direction: column;">
+        <div>
+
+        </div>
+        <p>Année de référence - {{this.questBio.anneeReference}}<p>
+        <p>Type de mésures - {{this.questBio.typeMesure}}<p></p>
+        <p>Intégration de la Biodiversité dans les Critères d'investissement - {{this.questBio.typeMesure}}<p></p>
+        <p>Partenariats avec des Organisations de Conservation - {{this.questBio.partenariat}}<p></p>
+        <p>Mise en Place de Corridors Écologiques - {{this.questBio.coridor}}<p></p>
+        <p>Formation et Sensibilisation du Personnel - {{this.questBio.formation}}<p></p>
+        <p>Évaluation de l'impact sur la Biodiversité - {{this.questBio.evalImpact}}<p></p>
+        <p>Engagement envers des Standards Internationaux de Biodiversité - {{this.questBio.engagement}}<p></p>
+        <p>Facteurs d'incertitude - {{this.questBio.incertitude}}<p></p>
+        <p>commentaire - {{this.questBio.commentaire}}<p></p>
+      </div>
+
+    </div>
+</mat-dialog-content>
+<mat-dialog-actions >
+  <button mat-button mat-dialog-close>Annuler</button>
+  <button mat-button [mat-dialog-close]="true" cdkFocusInitial>Imprimer</button>
+</mat-dialog-actions>

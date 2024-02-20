@@ -23,7 +23,9 @@ import { MetricsComponent } from './composants/metrics/metrics.component';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { HttpClientModule } from '@angular/common/http';
 import { SecondNAvComponent } from './composants/second-nav/second-nav.component';
-
+import { TelechargementsComponent } from './composants/telechargements/telechargements.component';
+import {MatDialogModule} from '@angular/material/dialog';
+import { DialogComponentComponent } from './composants/dialog-component/dialog-component.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +37,9 @@ import { SecondNAvComponent } from './composants/second-nav/second-nav.component
     ListeActionsComponent,
     QuestionnairesComponent,
     MetricsComponent,
-    SecondNAvComponent
+    SecondNAvComponent,
+    TelechargementsComponent,
+    DialogComponentComponent
   ],
   imports: [
     BrowserModule,
@@ -52,7 +56,8 @@ import { SecondNAvComponent } from './composants/second-nav/second-nav.component
     MatIconModule,
     MatTableModule,
     NgxChartsModule,
-    HttpClientModule
+    HttpClientModule,
+    MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]

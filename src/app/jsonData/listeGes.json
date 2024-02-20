@@ -1,0 +1,28 @@
+[
+  {
+    "id":1,
+    "idAction":1,
+    "anneeReference":2019,
+    "porteeEmission":"Émissions directes liées à la société (Scope 1)",
+    "catEmission":"Émissions d'oxyde nitreux (N2O)",
+    "ordreGrandeur":"Faible (moins de 1 000 tonnes de CO2 équivalent)",
+    "categorie":"Transport",
+    "methCalcul":"Utilisation de données tierces",
+    "precisionMethCalcul":"Methode de calcul trouvée Apple",
+    "facteurIncertitude":"Faible",
+    "commRemarqueAdditionnelles":"commmentaire Ges Apple"
+  },
+  {
+    "id":2,
+    "idAction":2,
+    "anneeReference":2006,
+    "porteeEmission":"Émissions indirectes liées aux activités hors énergie (Scope 3)",
+    "catEmission":"Émissions de méthane (CH4)",
+    "ordreGrandeur":"Modéré (1 000 à 10 000 tonnes de CO2 équivalent)",
+    "categorie":"Fin de Vie des Produits",
+    "methCalcul":"Utilisation des données fournies par la société",
+    "precisionMethCalcul":"Methode de calcul de Tesla",
+    "facteurIncertitude":"Élevé",
+    "commRemarqueAdditionnelles":"commmentaire Ges Tesla"
+  }
+]
