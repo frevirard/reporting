@@ -121,6 +121,7 @@ export class ActionsComponent implements OnInit, OnDestroy {
 
 
   isOptional = false;
+  notOptional = true;
 
   constructor(private _formBuilder: FormBuilder, private actionsService: ActionsService,
     private bioDiversiteService:BiodiversiteServiceService
@@ -200,20 +201,21 @@ export class ActionsComponent implements OnInit, OnDestroy {
     if(this.action.id === 0 ) {
       this.action.id = Math.floor(Math.random() * 50000)
     } else {
-      console.log("rien");
-      console.log(this.action);
+
     }
     this.action.libelleSecteur = this.secteurs.find(x=>x.id == this.action.idSecteur)?.libelle;
+    this.action.notation = "BB"
     this.actionsService.addAction(this.action)
 
 
     this.questBiodiversite.idAction = this.action.id!;
     this.questConsoEau.idAction = this.action.id!;
     this.questGES.idAction = this.action.id!;
-    console.log(this.action);
-    console.log(this.questBiodiversite);
-    console.log(this.questConsoEau);
-    console.log(this.questGES)
+
+
+    this.bioDiversiteService.addBiodiversite(this.questBiodiversite);
+    this.consoEauService.addConso(this.questConsoEau);
+    this.questGestService.addquesGes(this.questGES);
 
     this.action = {
       id:0,
@@ -235,8 +237,7 @@ export class ActionsComponent implements OnInit, OnDestroy {
       if (this.questBiodiversite.idAction === 0 && this.action.id) {
         this.questBiodiversite.idAction = this.action.id
       };
-      console.log(this.action);
-      console.log(this.questBiodiversite)
+
   }
 
 

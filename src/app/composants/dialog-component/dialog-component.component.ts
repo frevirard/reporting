@@ -65,8 +65,10 @@ export class DialogComponentComponent implements OnInit {
 
 
   ngOnInit(): void {
-    console.log(this.data);
+
     this.questBio = this.bioDiversiteService.findBioById(this.data.id!)!;
+    this.questEau = this.consoEauService.findConsoById(this.data.id!)!;
+    this.questGest = this.questGestService.findGesById(this.data.id!)!;
   }
 
 }

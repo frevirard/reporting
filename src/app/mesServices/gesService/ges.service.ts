@@ -13,6 +13,11 @@ export class GesService {
   }
 
   addquesGes(questionnaire:Ges) {
+    console.log(this.questGes.find(x=> x.idAction === questionnaire.idAction));
+    if(this.questGes.find(x=> x.idAction === questionnaire.idAction)) {
+      this.questGes[this.questGes.findIndex(x => x.idAction = questionnaire.idAction)] =  questionnaire;
+      return;
+    }
     this.questGes.push(questionnaire);
   }
 

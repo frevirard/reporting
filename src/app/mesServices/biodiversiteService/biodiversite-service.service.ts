@@ -7,23 +7,37 @@ import listeQuest from '../../jsonData/listeQuestBio.json';
 })
 export class BiodiversiteServiceService {
 
-  bio:Biodiversite[] = [];
+  bio:Set<Biodiversite> =new Set();
   constructor() {
-    this.bio = listeQuest;
+    listeQuest.forEach(x=>this.bio.add(x))
    }
 
   addBiodiversite(questionnaireBiodiversite:Biodiversite) {
-    this.bio.push(questionnaireBiodiversite)
+    this.bio.add(questionnaireBiodiversite);
   }
 
   findBioById(idRecherche:number) {
-   var bio = this.bio.find(x=>x.idAction == idRecherche)
-
-   if (bio) {
-    return bio
-   }
-
-   return null;
+    let ok:Biodiversite ={
+      id: 0,
+      idAction: 0,
+      anneeReference: 0,
+      typeMesure: '',
+      integBiodiversite: '',
+      partenariat: '',
+      coridor: '',
+      formation: '',
+      evalImpact: '',
+      engagement: '',
+      incertitude: '',
+      commentaire: ''
+    } ;
+    this.bio.forEach( x => {
+      if(x.id === idRecherche) {
+        ok = x;
+      }
+    }
+    );
+   return ok;
   }
 
   getBiodiversite() {

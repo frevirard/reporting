@@ -13,6 +13,10 @@ export class ConsoEauService {
   }
 
   addConso(questionnaireConso:ConsoEau) {
+    if(this.questConsos.find(x=> x.idAction === questionnaireConso.idAction)) {
+      this.questConsos[this.questConsos.findIndex(x => x.idAction = questionnaireConso.idAction)] =  questionnaireConso;
+      return;
+    }
     this.questConsos.push(questionnaireConso)
   }
 

@@ -4,21 +4,24 @@
     "nom":"Apple",
     "idSecteur":11,
     "libelleSecteur":"Informatique / Télécoms",
-    "statut":1
+    "statut":1,
+    "notation":"AAA"
   },
   {
     "id":2,
     "nom":"Tesla",
     "idSecteur":4,
     "libelleSecteur":"Machines et équipements / Automobile",
-    "statut":1
+    "statut":1,
+    "notation":"A"
   },
   {
     "id":4,
     "nom":"BNP PariBas",
     "idSecteur":7,
     "libelleSecteur":"Banque / Assurance",
-    "statut":2
+    "statut":2,
+    "notation":"BB"
   }
   ,
   {
@@ -26,7 +29,8 @@
     "nom":"NOKIA",
     "idSecteur":10,
     "libelleSecteur":"Informatique / Télécoms",
-    "statut":3
+    "statut":3,
+    "notation":"B"
   },
 
   {
@@ -34,6 +38,7 @@
     "nom":"Crayon Tech",
     "idSecteur":2,
     "libelleSecteur":"Informatique / Télécoms",
-    "statut":1
+    "statut":1,
+    "notation":"CCC"
   }
 ]

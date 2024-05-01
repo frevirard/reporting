@@ -22,9 +22,10 @@ export class ListeActionsComponent implements OnInit,OnChanges {
 
 
   searchvalue:string = ""
-  actions:Action[] = []
-  dataSource = actions;
-  columnsToDisplay = ['nom', 'secteur', 'statut', 'Consulter','Modifier'];
+  boof:Action[] = []
+  actions:Set<Action> = new Set()
+  dataSource = this.boof;
+  columnsToDisplay = ['nom', 'secteur', 'Consulter','Modifier'];
 
 
   constructor(private actionsSevice:ActionsService, private router:Router,public dialog: MatDialog) { }
@@ -32,12 +33,18 @@ export class ListeActionsComponent implements OnInit,OnChanges {
   }
 
   ngOnInit(): void {
-    this.actions = this.actionsSevice.getAction();
+    let e = this.actionsSevice.getAction();
+
+    e.forEach(x=> {
+      this.boof.push(x);
+
+    });
   }
 
 
 
   openDialog(action:Action) {
+    console.log(this.actions);
     const dialogRef = this.dialog.open(DialogComponentComponent,{
       data: action,
    });

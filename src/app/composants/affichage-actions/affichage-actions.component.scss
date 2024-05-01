@@ -43,7 +43,7 @@
   transition: 1s;
 }
 
-.sidebar a {
+a {
   padding: 6px 8px 6px 16px;
   text-decoration: none;
   font-size: 20px;
@@ -69,4 +69,10 @@
 
 a:hover {
   background-color: #4DB6AC;;
+}
+
+
+.active {
+  color: #4db6ac;
+  text-shadow: 0 0 3px #4DB6AC 260, 100%, 70%, 0.7;
 }

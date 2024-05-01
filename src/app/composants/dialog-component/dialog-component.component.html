@@ -1,25 +1,163 @@
-<div style="width: 50vw;">
+<div style="width: 50vw; display: flex;flex-direction: row;">
   <h2  mat-dialog-title>Fiche {{data.nom}} </h2>
+
+  <div style="width: 70%;display: flex;justify-content: flex-end;">
+    <h2>Notation -  {{data.notation}} </h2>
+  </div>
 </div>
 
 <mat-dialog-content class="mat-typography">
     <div >
-      <p> Questionnaire Bio-diversité</p>
-
       <div style="width: 50vw;display: flex; flex-direction: column;">
-        <div>
+        <table id="customers">
+          <tr>
+            <th colspan="2">Questionnaire Bio-diversité</th>
 
-        </div>
-        <p>Année de référence - {{this.questBio.anneeReference}}<p>
-        <p>Type de mésures - {{this.questBio.typeMesure}}<p></p>
-        <p>Intégration de la Biodiversité dans les Critères d'investissement - {{this.questBio.typeMesure}}<p></p>
-        <p>Partenariats avec des Organisations de Conservation - {{this.questBio.partenariat}}<p></p>
-        <p>Mise en Place de Corridors Écologiques - {{this.questBio.coridor}}<p></p>
-        <p>Formation et Sensibilisation du Personnel - {{this.questBio.formation}}<p></p>
-        <p>Évaluation de l'impact sur la Biodiversité - {{this.questBio.evalImpact}}<p></p>
-        <p>Engagement envers des Standards Internationaux de Biodiversité - {{this.questBio.engagement}}<p></p>
-        <p>Facteurs d'incertitude - {{this.questBio.incertitude}}<p></p>
-        <p>commentaire - {{this.questBio.commentaire}}<p></p>
+          </tr>
+          <tr>
+            <td>Année de référence</td>
+            <td>{{this.questBio.anneeReference}}</td>
+          </tr>
+
+          <tr>
+            <td>Type de mésures</td>
+            <td>{{this.questBio.typeMesure}}</td>
+          </tr>
+
+          <tr>
+            <td>Intégration de la Biodiversité dans les Critères d'investissement </td>
+            <td>{{this.questBio.integBiodiversite}}</td>
+          </tr>
+
+          <tr>
+            <td>Partenariats avec des Organisations de Conservation</td>
+            <td>{{this.questBio.partenariat}}</td>
+          </tr>
+
+          <tr>
+            <td>Mise en Place de Corridors Écologiques</td>
+            <td>{{this.questBio.coridor}}</td>
+          </tr>
+
+          <tr>
+            <td>Formation et Sensibilisation du Personnel</td>
+            <td>{{this.questBio.formation}}</td>
+          </tr>
+
+          <tr>
+            <td>Évaluation de l'impact sur la Biodiversité</td>
+            <td>{{this.questBio.evalImpact}}</td>
+          </tr>
+
+          <tr>
+            <td>Engagement envers des Standards Internationaux de Biodiversité </td>
+            <td>{{this.questBio.engagement}}</td>
+          </tr>
+
+          <tr>
+            <td>Facteurs d'incertitude</td>
+            <td>{{this.questBio.incertitude}}</td>
+          </tr>
+
+          <tr>
+            <td>commentaire </td>
+            <td>{{this.questBio.commentaire}}</td>
+          </tr>
+
+          <tr>
+            <th colspan="2">Questionnaire Consommation d'eau</th>
+
+          </tr>
+
+          <tr>
+            <td>Année de Référence </td>
+            <td>{{this.questEau.anneeReference}}</td>
+          </tr>
+
+          <tr>
+            <td>Type d'Installation Mesurée </td>
+            <td>{{this.questEau.typeInstallation}}</td>
+          </tr>
+
+          <tr>
+            <td>Source d'Approvisionnement en Eau </td>
+            <td>{{this.questEau.sourceAppro}}</td>
+          </tr>
+          <tr>
+            <td>Méthode de Mesure </td>
+            <td>{{this.questEau.methodeMesure}}</td>
+          </tr>
+          <tr>
+            <td>Consommation d'Eau par Unité de Production </td>
+            <td>{{this.questEau.consoEau}}</td>
+          </tr>
+
+          <tr>
+            <td>Evolution par Rapport à l'Année Précédente </td>
+            <td>{{this.questEau.evolution}}</td>
+          </tr>
+
+
+          <tr>
+            <td>Mesures Prises pour Réduire la Consommation d'Eau </td>
+            <td>{{this.questEau.mesurePrise}}</td>
+          </tr>
+
+
+          <tr>
+            <td>Facteur d'Incertitude</td>
+            <td>{{this.questEau.facteurIncertitude}}</td>
+          </tr>
+
+          <tr>
+            <td>Commentaire</td>
+            <td>{{this.questEau.commentaire}}</td>
+          </tr>
+
+
+          <tr>
+            <th colspan="2">Questionnaire Émissions Totales de GES par Année</th>
+
+          </tr>
+
+          <tr>
+            <td>Année de Référence</td>
+            <td>{{this.questGest.anneeReference}}</td>
+          </tr>
+
+          <tr>
+            <td>Portée des Émissions</td>
+            <td>{{this.questGest.anneeReference}}</td>
+          </tr>
+
+          <tr>
+            <td>Catégories d'Émissions</td>
+            <td>{{this.questGest.catEmission}}</td>
+          </tr>
+
+          <tr>
+            <td>Ordre de Grandeur des Émissions de GES</td>
+            <td>{{this.questGest.ordreGrandeur}}</td>
+          </tr>
+          <tr>
+            <td>Méthodologie de Calcul</td>
+            <td>{{this.questGest.methCalcul}}</td>
+          </tr>
+          <tr>
+            <td>Précisions sur la Méthodologie de Collecte de Données</td>
+            <td>{{this.questGest.precisionMethCalcul}}</td>
+          </tr>
+          <tr>
+            <td>Facteurs d'Incertitude</td>
+            <td>{{this.questGest.facteurIncertitude}}</td>
+          </tr>
+          <tr>
+            <td>Commentaires ou Remarques Additionnelles</td>
+            <td>{{this.questGest.commRemarqueAdditionnelles}}</td>
+          </tr>
+
+        </table>
+
       </div>
 
     </div>

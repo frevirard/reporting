@@ -6,4 +6,5 @@ export interface Action {
   idSecteur?:number;
   libelleSecteur?:String;
   statut:number;
+  notation?:string
 }

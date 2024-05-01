@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Action } from '../../DAO/action';
 import listeactions from  '../../jsonData/listeActions.json'
+import { retry } from 'rxjs';
 
 
 @Injectable({
@@ -9,7 +10,7 @@ import listeactions from  '../../jsonData/listeActions.json'
 
 export class ActionsService {
 
-  actions:Action[] = [];
+  actions:Set<Action> = new Set();
   passedAction:Action = {
     id:0,
     nom: '',
@@ -18,7 +19,7 @@ export class ActionsService {
   };
 
   constructor() {
-    this.actions = listeactions;
+     listeactions.forEach(x=> this.actions.add(x));
    }
 
   getAction() {
@@ -26,7 +27,16 @@ export class ActionsService {
   }
 
   addAction(action:Action) {
-    this.actions.push(action)
+    // if(this.actions.find(x=> x.id === action.id)) {
+    //   console.log("index")
+    //   console.log(this.actions.findIndex(x => x.id = action.id))
+    //   this.actions[this.actions.findIndex(x => x.id = action.id)] = action;
+    //   return;
+    // }
+    // this.actions.push(action)
+    this.actions.add(action);
+    console.log("ajouté")
+    console.log(this.actions);
   }
 
 

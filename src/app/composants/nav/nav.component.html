@@ -4,8 +4,9 @@
   <span  [routerLink]="['/']" class="nav-item" style="display: flex;align-items: center;justify-content: center;" [routerLinkActive]="'nav-item active'">
 
 
-    <p class="glow" >ETHI'TRACK</p>
-		<!-- <img style="background-color: black; object-fit: contain;" src="/assets/images/logo.png" alt="image"> -->
+		<div style="position: fixed;  justify-content: center;align-items: center; padding-top: 2vh;">
+      <img style=" object-fit: contain; max-width: 10vw; max-height: 10vh;" src="/assets/images/final.png" alt="image">
+    </div>
 	</span>
 
 
@@ -17,19 +18,19 @@
 
 		<a >Accueil</a>
 	</span> -->
-	<span class="nav-item" routerLink="/affichageActions">
+	<span class="nav-item" routerLink="/affichageActions" routerLinkActive="active">
 		<span class="icon"  routerLink="/affichageActions">
 			<mat-icon >account_balance</mat-icon>
 		</span>
-		<a >Actions</a>
+		<a >Portefeuille</a>
 	</span>
-	<span routerLink="/metrics" class="nav-item">
+	<span routerLink="/metrics" class="nav-item" routerLinkActive="active">
 		<span class="icon" routerLink="/metrics">
 			<mat-icon >bar_chart</mat-icon>
 		</span>
-		<a >Metrics</a>
+		<a >Reporting</a>
 	</span>
-	<span class="nav-item" routerLink="/telechargements">
+	<span class="nav-item" routerLink="/telechargements" routerLinkActive="active">
 		<span class="icon">
 			<mat-icon ><span class="material-symbols-outlined">
         legend_toggle
